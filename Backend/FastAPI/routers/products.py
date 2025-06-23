@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
+
+from db.models.product import Product
 
 router = APIRouter(
     prefix="/products",
@@ -9,11 +10,6 @@ router = APIRouter(
 
 # Iniciar el servidor con uvicorn products:router --reload
 
-# Entidad 
-class Product(BaseModel):  # BaseModel permite crear la entidad sin necesidad de declarar el constructor
-    id: int
-    name: str
-    count: int
 
 # Creamos una lista de la entidad
 product_list = [Product(id= 1,name = "Detergente", count = 24), Product(id = 2, name = "Lejia", count = 28)]
